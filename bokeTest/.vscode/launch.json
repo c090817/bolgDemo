@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "Debug (Launch)",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/WebContent/WEB-INF/classes",
+        "sourcePaths": [
+          "$(workspaceRoot)/src"
+        ],
+        "classPaths": [
+          "",
+          "$(workspaceRoot)/WebContent/WEB-INF/classes"
+        ],
+        "mainClass": "com.coolcao.test.${fileBasenameNoExtension}",
+        "args": ""
+      }
+    ]
+  }
