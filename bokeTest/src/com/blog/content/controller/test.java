@@ -1,4 +1,4 @@
-package com.controller;
+package com.blog.content.controller;
 import java.sql.DriverManager; 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package com.controller;
+package com.blog.content.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
-import com.service.SelectUsersService;
 import com.bean.Users;
+import com.blog.content.service.SelectUsersService;
 
 @Controller
 @RequestMapping(value="/selectUsers")
@@ -35,14 +35,6 @@ public class SelectUsersController {
 			
 			List<Users> list = this.selectUsersService.selectUsers();
 			result.put("success", true);
-			for(int i = 0 ;i<list.size() ;i++){
-				
-			Integer id = list.get(i).getId();
-			String email = list.get(i).getEmail();
-			String password = list.get(i).getPassword();
-			String username = list.get(i).getUsername();
-			System.out.println(id+email+password+username);
-			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,4 +1,4 @@
-package com.service.impl;
+package com.blog.content.service.impl;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Users;
-import com.mybatis.dao.SelectUsersDao;
-import com.service.SelectUsersService;
+import com.blog.content.mybatis.dao.SelectUsersDao;
+import com.blog.content.service.SelectUsersService;
 
 @Service("SelectUsersService")
 public class SelectUsersServiceImpl implements SelectUsersService{

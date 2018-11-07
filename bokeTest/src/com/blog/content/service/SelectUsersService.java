@@ -1,4 +1,4 @@
-package com.service;
+package com.blog.content.service;
 
 import java.util.List;
 
