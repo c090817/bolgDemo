@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bean.Users;
-import com.blog.content.service.SelectUsersService;
+import com.blog.content.service.UsersService;
 
 @Controller
-@RequestMapping(value="/selectUsers")
-public class SelectUsersController {
+@RequestMapping(value="/users")
+public class UsersController {
 
 	@Autowired
-	private SelectUsersService selectUsersService;
+	private UsersService usersService;
 	
 	/**
 	 * @date 5/14
@@ -28,12 +28,12 @@ public class SelectUsersController {
 	 *         查询测试
 	 */
 	@ResponseBody
-	@RequestMapping(value="/selectTest.do")
+	@RequestMapping(value="/selectUsers.do")
 	public String selectTest() {
 		JSONObject result = new JSONObject();
 		try {
 			
-			List<Users> list = this.selectUsersService.selectUsers();
+			List<Users> list = this.usersService.selectUsers();
 			result.put("success", true);
 			
 		} catch (Exception e) {

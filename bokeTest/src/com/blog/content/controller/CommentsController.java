@@ -8,31 +8,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bean.Posts;
-import com.blog.content.service.PostsService;
+import com.bean.Comments;
+import com.blog.content.service.CommentsService;
 
 @Controller
-@RequestMapping(value="/post")
-public class PostsController {
+@RequestMapping(value="/comments")
+public class CommentsController {
 
-	
 	@Autowired
-	private PostsService postsService;
-	
+	private CommentsService commentsService;
 	/**
 	 * @date 11-15
-	 * @param post
+	 * @param comments
 	 * @return
 	 * @author chenst
 	 * 
-	 *         查询post表  查询内容
+	 *         查询comments表  查询内容
 	 */
 	@ResponseBody
-	@RequestMapping(value="/selectPost.do")
-	public String selectPost() {
+	@RequestMapping(value="/selectComments.do")
+	public String selectComments() {
 		JSONObject result = new JSONObject();
 		try {
-			List<Posts> list = postsService.selectPosts();
+			List<Comments> list = commentsService.selectComments();
 			result.put("success", true);
 			
 		} catch (Exception e) {
@@ -42,4 +40,5 @@ public class PostsController {
 		String text = "<textarea>" + result.toString() + "</textarea>";
 		return text;
 	}
+	
 }

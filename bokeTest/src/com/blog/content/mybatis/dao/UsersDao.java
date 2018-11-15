@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.bean.Users;
 
-public interface SelectUsersDao {
+public interface UsersDao {
 
 	
-	public List<Users> SelectUsers() ;
+	public List<Users> Users() ;
 }
 
 
