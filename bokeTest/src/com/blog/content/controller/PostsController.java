@@ -28,8 +28,8 @@ public class PostsController {
 	 *         查询post表  查询内容
 	 */
 	@ResponseBody
-	@RequestMapping(value="/selectPost.do")
-	public String selectPost() {
+	@RequestMapping(value="/selectPosts.do")
+	public String selectPosts() {
 		JSONObject result = new JSONObject();
 		try {
 			List<Posts> list = postsService.selectPosts();
@@ -42,4 +42,31 @@ public class PostsController {
 		String text = "<textarea>" + result.toString() + "</textarea>";
 		return text;
 	}
+	
+	
+	/**
+	 * @date 11-15
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         查询post表  发布帖子
+	 */
+	@ResponseBody
+	@RequestMapping(value="/insertPosts.do")
+	public String insertPosts(Posts posts) {
+		JSONObject result = new JSONObject();
+		try {
+			result = postsService.insertPosts(posts);
+			result.put("success", true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", false);
+		}
+		String text = "<textarea>" + result.toString() + "</textarea>";
+		return text;
+	}
+	
+	
 }

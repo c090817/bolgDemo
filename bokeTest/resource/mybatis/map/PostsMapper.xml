@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.blog.content.mybatis.dao.PostsDao">
- 	<select id="SelectPosts" parameterType="String" resultType="com.bean.Posts">
+ 	<select id="selectPosts" parameterType="String" resultType="com.bean.Posts">
 		select * from posts
 	</select> 
 
+
+
+
+	<insert id="insertPosts" parameterType="HashMap">
+		insert into
+		posts
+		(id,TITLE)
+		values (
+		#{id,jdbcType=INTEGER},
+		#{title,jdbcType=VARCHAR}
+		)
+	</insert>
 </mapper>
