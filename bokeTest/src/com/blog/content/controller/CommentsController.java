@@ -17,6 +17,7 @@ public class CommentsController {
 
 	@Autowired
 	private CommentsService commentsService;
+	
 	/**
 	 * @date 11-15
 	 * @param comments
@@ -31,6 +32,33 @@ public class CommentsController {
 		JSONObject result = new JSONObject();
 		try {
 			List<Comments> list = commentsService.selectComments();
+			result.put("success", true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", false);
+		}
+		String text = "<textarea>" + result.toString() + "</textarea>";
+		return text;
+	}
+	
+	
+	
+	
+	/**
+	 * @date 11-19
+	 * @param comments
+	 * @return
+	 * @author chenst
+	 * 
+	 *         comments表  发表评论
+	 */
+	@ResponseBody
+	@RequestMapping(value="/insertComments.do")
+	public String insertComments(Comments comments) {
+		JSONObject result = new JSONObject();
+		try {
+			result = commentsService.insertComments(comments);
 			result.put("success", true);
 			
 		} catch (Exception e) {

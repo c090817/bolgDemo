@@ -50,7 +50,7 @@ public class PostsController {
 	 * @return
 	 * @author chenst
 	 * 
-	 *         查询post表  发布帖子
+	 *         post表  发布帖子
 	 */
 	@ResponseBody
 	@RequestMapping(value="/insertPosts.do")

@@ -19,7 +19,11 @@ public class PostsServiceImpl implements PostsService{
 	@Override
 	public List<Posts> selectPosts() {
 		
-		return postsDao.selectPosts();
+		
+		List<Posts> list = postsDao.selectPosts();
+		
+		
+		return list;
 	}
 	
 	

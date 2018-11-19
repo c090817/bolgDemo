@@ -5,4 +5,13 @@
 		select * from comments
 	</select> 
 
+	<insert id="insertComments" parameterType="HashMap">
+		insert into
+		Comments
+		(id,name)
+		values (
+		#{id,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR}
+		)
+	</insert>
 </mapper>
