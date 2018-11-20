@@ -14,4 +14,8 @@
 		#{title,jdbcType=VARCHAR}
 		)
 	</insert>
+	
+	<delete id="deletePosts" parameterType="Integer">
+		delete from posts where id = #{id,jdbcType=INTEGER}
+	</delete>
 </mapper>

@@ -68,5 +68,29 @@ public class PostsController {
 		return text;
 	}
 	
+	/**
+	 * @date 11-20
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         post表  删除
+	 */
+	@ResponseBody
+	@RequestMapping(value="/deletePosts.do")
+	public String deletePosts(Integer id) {
+		JSONObject result = new JSONObject();
+		try {
+			result = postsService.deletePosts(id);
+			result.put("success", true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", false);
+		}
+		String text = "<textarea>" + result.toString() + "</textarea>";
+		return text;
+	}
+	
 	
 }

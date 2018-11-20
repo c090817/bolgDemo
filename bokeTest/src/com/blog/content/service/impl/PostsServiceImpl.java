@@ -18,11 +18,7 @@ public class PostsServiceImpl implements PostsService{
 
 	@Override
 	public List<Posts> selectPosts() {
-		
-		
 		List<Posts> list = postsDao.selectPosts();
-		
-		
 		return list;
 	}
 	
@@ -44,6 +40,27 @@ public class PostsServiceImpl implements PostsService{
 			basicJson.put("value", impResult.toString());
 		}
 		
+
+		basicJson.put("value", impResult.toString());
+		return basicJson;
+	}
+
+
+
+	@Override
+	public JSONObject deletePosts(Integer id) {
+		JSONObject basicJson = new JSONObject();
+		StringBuffer impResult = new StringBuffer();
+		try {
+			postsDao.deletePosts(id);
+			
+			impResult.append("删除成功");
+		} catch (Exception e) {
+			impResult.append("删除失败");
+			e.printStackTrace();
+		} finally {
+			basicJson.put("value", impResult.toString());
+		}
 
 		basicJson.put("value", impResult.toString());
 		return basicJson;

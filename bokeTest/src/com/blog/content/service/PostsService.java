@@ -12,4 +12,7 @@ public interface PostsService {
 	
 	//发布帖子
 	public JSONObject insertPosts(Posts posts);
+	
+	//删除帖子
+	public JSONObject deletePosts(Integer id);
 }
