@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bean.Comments;
@@ -46,5 +47,31 @@ public class CommentsServiceImpl implements CommentsService{
 		basicJson.put("value", impResult.toString());
 		return basicJson;
 	}
+
+
+
+
+	@Override
+	@Transactional
+	public JSONObject deleteComments(Integer id) {
+		JSONObject basicJson = new JSONObject();
+		StringBuffer impResult = new StringBuffer();
+		try {
+			commentsDao.deleteComments(id);
+			
+			impResult.append("删除成功");
+		} catch (Exception e) {
+			impResult.append("删除失败");
+			e.printStackTrace();
+		} finally {
+			basicJson.put("value", impResult.toString());
+		}
+
+		basicJson.put("value", impResult.toString());
+		return basicJson;
+	}
+	
+	
+	
 
 }

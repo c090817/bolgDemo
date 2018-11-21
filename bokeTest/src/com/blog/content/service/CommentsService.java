@@ -12,4 +12,7 @@ public interface CommentsService {
 	
 	//发表评论
 	public JSONObject insertComments(Comments comments);
+	
+	//删除评论
+	public JSONObject deleteComments(Integer id);
 }

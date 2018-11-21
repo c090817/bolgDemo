@@ -10,4 +10,6 @@ public interface CommentsDao {
 	public List<Comments> SelectComments() ;
 	
 	public void insertComments(Comments comments);
+	
+	public void deleteComments(Integer id);
 }

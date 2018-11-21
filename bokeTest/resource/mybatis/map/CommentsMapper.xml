@@ -14,4 +14,8 @@
 		#{name,jdbcType=VARCHAR}
 		)
 	</insert>
+	
+		<delete id="deleteComments" parameterType="Integer">
+		delete from Comments where id = #{id,jdbcType=INTEGER}
+	</delete>
 </mapper>

@@ -69,4 +69,28 @@ public class CommentsController {
 		return text;
 	}
 	
+	
+	/**
+	 * @date 11-21
+	 * @param comments
+	 * @return
+	 * @author chenst
+	 * 
+	 *         comments表  删除评论
+	 */
+	@ResponseBody
+	@RequestMapping(value="/deleteComments.do")
+	public String deleteComments(Integer id) {
+		JSONObject result = new JSONObject();
+		try {
+			result = commentsService.deleteComments(id);
+			result.put("success", true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", false);
+		}
+		String text = "<textarea>" + result.toString() + "</textarea>";
+		return text;
+	}
 }
