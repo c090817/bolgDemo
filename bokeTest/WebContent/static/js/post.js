@@ -1,0 +1,3 @@
+function check() {
+	$("#formSubmit").submit();
+}

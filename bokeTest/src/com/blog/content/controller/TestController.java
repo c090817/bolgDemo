@@ -12,7 +12,15 @@ public class TestController {
 	@RequestMapping(value = "/totestPage")
 	public ModelAndView totestPage() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/test");
+		modelAndView.setViewName("/html/test");
+		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value = "/postPage.do")
+	public ModelAndView postPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/html/test");
 		return modelAndView;
 	}
 }

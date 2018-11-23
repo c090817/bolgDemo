@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bean.Posts;
@@ -92,5 +93,20 @@ public class PostsController {
 		return text;
 	}
 	
+	
+	/**
+	 * @date 11-23
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         post表  页面
+	 */
+	@RequestMapping(value = "/postPage.do")
+	public ModelAndView postPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/html/post");
+		return modelAndView;
+	}
 	
 }
