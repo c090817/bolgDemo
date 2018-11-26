@@ -34,6 +34,7 @@ public class PostsController {
 		JSONObject result = new JSONObject();
 		try {
 			List<Posts> list = postsService.selectPosts();
+			result.put("list", list);
 			result.put("success", true);
 			
 		} catch (Exception e) {
