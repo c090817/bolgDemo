@@ -29,7 +29,7 @@ public class PostsServiceImpl implements PostsService{
 		JSONObject basicJson = new JSONObject();
 		StringBuffer impResult = new StringBuffer();
 		try {
-			posts.setTitle("测试");
+//			posts.setTitle("测试");
 			postsDao.insertPosts(posts);
 			
 			impResult.append("插入成功");

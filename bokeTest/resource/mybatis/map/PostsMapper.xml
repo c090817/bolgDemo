@@ -5,13 +5,14 @@
 		select * from posts
 	</select> 
 
-	<insert id="insertPosts" parameterType="HashMap">
+	<insert id="insertPosts" parameterType="com.bean.Posts">
 		insert into
 		posts
-		(id,TITLE)
+		(id,TITLE,content)
 		values (
 		#{id,jdbcType=INTEGER},
-		#{title,jdbcType=VARCHAR}
+		#{title,jdbcType=VARCHAR},
+		#{content,jdbcType=VARCHAR}
 		)
 	</insert>
 	

@@ -2,9 +2,15 @@ package com.blog.content.controller;
 
 import java.util.List;
 
+
+
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +26,25 @@ public class PostsController {
 	@Autowired
 	private PostsService postsService;
 	
+	
+	
+	/**
+	 * @date 11-23
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         post表  页面
+	 */
+	@RequestMapping(value = "/postPage.do")
+	public ModelAndView postPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/html/post");
+		return modelAndView;
+	}
+	
+	
+	
 	/**
 	 * @date 11-15
 	 * @param post
@@ -30,7 +55,7 @@ public class PostsController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/selectPosts.do")
-	public String selectPosts() {
+	public String selectPosts() throws Exception{
 		JSONObject result = new JSONObject();
 		try {
 			List<Posts> list = postsService.selectPosts();
@@ -46,6 +71,23 @@ public class PostsController {
 	}
 	
 	
+	
+	/**
+	 * @date 11-23
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         post表  发布页面
+	 */
+	@RequestMapping(value = "/createPostPage.do")
+	public ModelAndView createPostPage() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/html/createPosts");
+		return modelAndView;
+	}
+	
+	
 	/**
 	 * @date 11-15
 	 * @param post
@@ -55,10 +97,16 @@ public class PostsController {
 	 *         post表  发布帖子
 	 */
 	@ResponseBody
-	@RequestMapping(value="/insertPosts.do")
-	public String insertPosts(Posts posts) {
+	@RequestMapping(value="/insertPosts.do", method = RequestMethod.POST)
+	public String insertPosts(ModelAndView modelAndView, HttpServletRequest request) throws Exception{
 		JSONObject result = new JSONObject();
 		try {
+			Posts posts = new Posts();
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			posts.setTitle(title);
+			posts.setContent(content);
+			
 			result = postsService.insertPosts(posts);
 			result.put("success", true);
 			
@@ -80,7 +128,7 @@ public class PostsController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/deletePosts.do")
-	public String deletePosts(Integer id) {
+	public String deletePosts(Integer id) throws Exception{
 		JSONObject result = new JSONObject();
 		try {
 			result = postsService.deletePosts(id);
@@ -94,20 +142,5 @@ public class PostsController {
 		return text;
 	}
 	
-	
-	/**
-	 * @date 11-23
-	 * @param post
-	 * @return
-	 * @author chenst
-	 * 
-	 *         post表  页面
-	 */
-	@RequestMapping(value = "/postPage.do")
-	public ModelAndView postPage() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/html/post");
-		return modelAndView;
-	}
 	
 }
