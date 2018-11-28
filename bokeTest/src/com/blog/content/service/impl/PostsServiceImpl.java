@@ -65,6 +65,14 @@ public class PostsServiceImpl implements PostsService{
 		basicJson.put("value", impResult.toString());
 		return basicJson;
 	}
+
+
+
+	@Override
+	public List<Posts> selectPostsById(Integer id) {
+		List<Posts> list = postsDao.selectPostsById(id);
+		return list;
+	}
 	
 	
 	

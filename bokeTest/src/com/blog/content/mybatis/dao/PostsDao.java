@@ -12,4 +12,6 @@ public interface PostsDao {
 	public void insertPosts(Posts posts);
 
 	public void deletePosts(Integer id);
+
+	public List<Posts> selectPostsById(Integer id);
 }

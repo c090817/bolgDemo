@@ -143,4 +143,30 @@ public class PostsController {
 	}
 	
 	
+	
+	/**
+	 * @date 11-28
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         查询post表  查询单条内容
+	 */
+	@ResponseBody
+	@RequestMapping(value="/selectPostsById.do")
+	public String selectPostsById(Integer id) throws Exception{
+		JSONObject result = new JSONObject();
+		try {
+			List<Posts> list = postsService.selectPostsById(id);
+			result.put("list", list);
+			result.put("success", true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("success", false);
+		}
+		String text = "<textarea>" + result.toString() + "</textarea>";
+		return text;
+	}
+	
 }

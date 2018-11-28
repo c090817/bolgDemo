@@ -5,6 +5,13 @@
 		select * from posts
 	</select> 
 
+
+
+ 	<select id="selectPostsById" parameterType="Integer" resultType="com.bean.Posts">
+		select * from posts 
+		where id = #{id,jdbcType=INTEGER}
+	</select> 
+
 	<insert id="insertPosts" parameterType="com.bean.Posts">
 		insert into
 		posts

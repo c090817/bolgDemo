@@ -15,4 +15,7 @@ public interface PostsService {
 	
 	//删除帖子
 	public JSONObject deletePosts(Integer id);
+	
+	//查询posts表
+	public List<Posts> selectPostsById(Integer id);
 }
