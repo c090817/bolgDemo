@@ -145,6 +145,24 @@ public class PostsController {
 	
 	
 	/**
+	 * @date 12-03
+	 * @param post
+	 * @return
+	 * @author chenst
+	 * 
+	 *         查询post表  查询正文内容页面
+	 */
+	@ResponseBody
+	@RequestMapping(value="/selectPostsByIdPage.do")
+	public ModelAndView selectPostsByIdPage() throws Exception{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/html/mainText");
+		return modelAndView;
+	}
+	
+	
+	
+	/**
 	 * @date 11-28
 	 * @param post
 	 * @return
