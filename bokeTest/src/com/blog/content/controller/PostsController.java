@@ -183,7 +183,8 @@ public class PostsController {
 			e.printStackTrace();
 			result.put("success", false);
 		}
-		String text = "<textarea>" + result.toString() + "</textarea>";
+//		String text = "<textarea>" + result.toString() + "</textarea>";
+		String text = result.toString();
 		return text;
 	}
 	
