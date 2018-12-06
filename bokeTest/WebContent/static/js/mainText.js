@@ -1,10 +1,5 @@
-function title(){
-		    $("#paragraph").text("Hello world!");
-		    $("#mainText").text("Hello world!");
-}
 
 $(document).ready(function(){
-	title();
 	a();
 });
 
@@ -20,7 +15,11 @@ function a(){
 	    timeout: 30000,
 	    success: function(result)
 	    {
-	    	alert(1);
+//	    	alert(result.list[0].title);
+	    	
+		    $("#paragraph").text(result.list[0].content);
+		    $("#mainText").text(result.list[0].title);
+	    	
 	    },
 	    error: function(XMLHttpRequest, textStatus, errorThrown) {
 	    	alert(1);
