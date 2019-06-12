@@ -8,6 +8,8 @@
       <param-value>classpath:spring/springMVC.xml</param-value>
     </init-param>
   </servlet>
+  
+<!-- 访问controller文件-->  
   <servlet-mapping>
     <servlet-name>springMVCServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
